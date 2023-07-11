@@ -1,0 +1,13 @@
+services:
+  verdaccio:
+    image: verdaccio/verdaccio
+    ports:
+      - "4873:4873"
+    volumes:
+      - ${HOST_VERDACCIO_DIR}:/verdaccio-storage
+    environment:
+      - VERDACCIO_STORAGE_PATH=/verdaccio-storage
+  worker:
+    build: ./worker
+    volumes:
+      - ${HOST_PACKAGE_LOCKS_DIR}:/package-locks-dir
