@@ -36,7 +36,7 @@ I did some experimentation with how to accomplish this. To do so I did the follo
 ```
 * Created local self signed certs per the instructions here: https://verdaccio.org/docs/ssl/, and specified `registry.npmjs.org` as the CN/FQDN.
 * Added the cert to my local store by following these instructions: https://superuser.com/a/455714
-* Copied the default config out of the verdaccio image and modified the following section:
+* Copied the default config out of the verdaccio image and modified the following section (modified config file is included at ./verdaccio-conf/config.yaml):
 ```
 https:
   key: /ssl-certs/verdaccio-key.pem
