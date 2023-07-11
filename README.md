@@ -61,3 +61,4 @@ docker run -e VERDACCIO_PORT=443 -e VERDACCIO_PROTOCOL=https -e VERDACCIO_STORAG
 npm config set cafile /home/kpoole/offline-npm/ssl-certs/verdaccio-cert.pem
 ```
 * ...then npm install commands started working.
+* Per the above note it does seem that specifying `NODE_EXTRA_CA_CERTS` should also work, but the moral is that some extra step will be needed to configure the NPM client to trust the new CA
