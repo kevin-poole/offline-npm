@@ -52,7 +52,9 @@ docker run -e VERDACCIO_PORT=443 -e VERDACCIO_PROTOCOL=https -e VERDACCIO_STORAG
 * I confirmed that it was not a "logical" disconnect with verdaccio by disabling https in this full scenario and seeing that it succeeded in that case.
 * **Then I found that npm apparently does not respect system CA settings, but comes bundled with it's own** (https://stackoverflow.com/a/27997570/2883500)
 
-> Unfortunately npm's CA bundle is not editable as it's provided in the source code
+> Unfortunately npm's CA bundle is not editable as it's provided in the source code (thanks tomekwi) but nitzel has provided a generic Node.js method to append a certificate via the NODE_EXTRA_CA_CERTS environment variable.
+>
+> RHEL Note: If you happen to be using a RHEL based distro and the RHEL packaged nodejs/npm you can use the standard update-ca-trust method as RedHat points their packages at the system CA's.
 
 * This was confirmed to be the issue because after executing:
 ```
